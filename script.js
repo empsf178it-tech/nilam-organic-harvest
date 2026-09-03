@@ -58,9 +58,9 @@ function closeCartSidebar() {
 }
 
 // Event Listeners for Opening/Closing
-cartToggle.addEventListener('click', openCart);
-closeCart.addEventListener('click', closeCartSidebar);
-cartOverlay.addEventListener('click', closeCartSidebar);
+if (cartToggle) cartToggle.addEventListener('click', openCart);
+if (closeCart) closeCart.addEventListener('click', closeCartSidebar);
+if (cartOverlay) cartOverlay.addEventListener('click', closeCartSidebar);
 
 // Add to Cart Function
 window.addToCart = function(name, price) {
@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', startPlay, { once: true });
     }
 });
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -255,4 +256,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         videoObserver.observe(footerVideo);
     }
+});
+
+// --- DYNAMIC ACTIVE NAVIGATION HIGHLIGHT ---
+document.addEventListener('DOMContentLoaded', () => {
+    let currentPath = window.location.pathname.split('/').pop().toLowerCase();
+    if (!currentPath || currentPath === '' || currentPath === 'nilam') {
+        currentPath = 'index.html';
+    }
+
+    // Highlight Desktop Nav links
+    const desktopLinks = document.querySelectorAll('#navbar .nav-link');
+    desktopLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.toLowerCase() === currentPath) {
+            link.classList.add('active');
+        }
+    });
+
+    // Highlight Mobile Menu links
+    const mobileLinks = document.querySelectorAll('#mobile-menu .mobile-nav-link');
+    mobileLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.toLowerCase() === currentPath) {
+            link.classList.add('active');
+        }
+    });
 });
