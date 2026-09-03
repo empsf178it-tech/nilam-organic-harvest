@@ -202,7 +202,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroVid = document.getElementById('hero-bg-video');
     if (heroVid) {
         heroVid.muted = true;
-        heroVid.currentTime = 3;
+
+        const setStartTime = () => {
+            if (heroVid.currentTime < 3) {
+                heroVid.currentTime = 3;
+            }
+        };
+
+        if (heroVid.readyState >= 1) {
+            setStartTime();
+        } else {
+            heroVid.addEventListener('loadedmetadata', setStartTime, { once: true });
+        }
 
         heroVid.addEventListener('timeupdate', () => {
             if (heroVid.currentTime < 3 && !heroVid.seeking) {
@@ -225,15 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- OPTIMIZED LAZY VIDEO LOADING ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Hero Video Instant Playback
-    const heroVideo = document.getElementById('hero-bg-video');
-    if (heroVideo) {
-        const playPromise = heroVideo.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {});
-        }
-    }
-
     // Lazy load footer video using IntersectionObserver
     const footerVideo = document.getElementById('footer-bg-video');
     if (footerVideo) {
