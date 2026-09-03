@@ -222,3 +222,35 @@ document.addEventListener('DOMContentLoaded', () => {
         heroVid.play().catch(() => {});
     }
 });
+
+// --- OPTIMIZED LAZY VIDEO LOADING ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Hero Video Instant Playback
+    const heroVideo = document.getElementById('hero-bg-video');
+    if (heroVideo) {
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {});
+        }
+    }
+
+    // Lazy load footer video using IntersectionObserver
+    const footerVideo = document.getElementById('footer-bg-video');
+    if (footerVideo) {
+        const videoObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    footerVideo.preload = "auto";
+                    footerVideo.load();
+                    const playPromise = footerVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(() => {});
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: "200px 0px" });
+
+        videoObserver.observe(footerVideo);
+    }
+});
