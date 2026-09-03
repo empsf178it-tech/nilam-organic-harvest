@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NILAM (நிலம்) | Rooted in Nature.</title>
     
-    <!-- Preload Hero Video for Zero-Lag Playback -->
+    <!-- Preload Hero Poster & Video for Instant Zero-Lag Display -->
+    <link rel="preload" href="assets/img/l1.png" as="image">
     <link rel="preload" href="assets/img/homeherovideo.mp4" as="video" type="video/mp4">
     
     <!-- Google Fonts -->
@@ -93,7 +94,7 @@
     <!-- Hero Section -->
     <section class="relative h-screen min-h-[700px] flex items-center text-white overflow-hidden">
         <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-            <video id="hero-bg-video" src="assets/img/homeherovideo.mp4" autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover scale-125 origin-center"></video>
+            <video id="hero-bg-video" src="assets/img/homeherovideo.mp4" poster="assets/img/l1.png" autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover scale-125 origin-center"></video>
             <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/25 to-primary/85"></div>
             <!-- Extra crisp top vignette specifically for navbar readability -->
             <div class="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none"></div>
