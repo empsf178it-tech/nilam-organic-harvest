@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NILAM (நிலம்) | Sustainability</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#183424', // Slightly deeper green
+              background: '#F9F8F5', // Softer, more luxurious cream
+              accent: '#8C6C42', // Richer earth brown
+              'accent-light': '#738669', // Muted sage
+              charcoal: '#1A1C1E', // Softer black
+              stone: '#EAE6DF' // For borders
+            },
+            fontFamily: {
+              heading: ['"Playfair Display"', 'serif'],
+              body: ['"Inter"', 'sans-serif'],
+            },
+            transitionTimingFunction: {
+              'premium': 'cubic-bezier(0.25, 1, 0.5, 1)',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+<body class="bg-background text-charcoal font-body font-light antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full py-4 lg:py-8 z-50 transition-all duration-700 ease-premium text-white border-b border-transparent">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3.5 group">
+                <div class="text-accent group-hover:scale-110 transition-transform duration-500">
+                    <svg class="w-6 h-6 lg:w-8 lg:h-8" viewBox="0 0 24 24" fill="none" stroke="#8C6C42" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22v-9"/>
+                        <path d="M12 13C12 7 6 4 6 4c0 6 6 9 6 9z" fill="#8C6C42" fill-opacity="0.25"/>
+                        <path d="M12 13C12 8 18 6 18 6c0 5-6 7-6 7z" fill="#8C6C42" fill-opacity="0.4"/>
+                        <path d="M7 22h10"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading text-xl lg:text-2xl tracking-[0.12em] leading-none text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] group-hover:text-accent transition-colors duration-500">NILAM</span>
+                    <span class="text-[0.65rem] tracking-[0.25em] text-accent font-bold mt-1 uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">நிலம்</span>
+                </div>
+            </a>
+            
+            <div class="hidden lg:flex gap-8">
+                <a href="index.html" class="text-xs tracking-[0.15em] uppercase text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] hover:text-accent transition-colors duration-500">Home</a>
+                <a href="farm.html" class="text-xs tracking-[0.15em] uppercase text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] hover:text-accent transition-colors duration-500">Our Farm</a>
+                <a href="sustainability.html" class="text-xs tracking-[0.15em] uppercase text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] hover:text-accent transition-colors duration-500">Sustainability</a>
+                <a href="contact.html" class="text-xs tracking-[0.15em] uppercase text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] hover:text-accent transition-colors duration-500">Contact</a>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <a href="harvest.html" class="hidden lg:inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-sm text-xs tracking-[0.15em] uppercase font-medium hover:bg-white hover:text-primary transition-all duration-300 shadow-md group">
+                    <span>Shop Harvest</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <button id="cart-toggle" class="relative text-white hover:text-accent transition-colors flex items-center group">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 stroke-[1.5]"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-medium opacity-0 transition-opacity duration-300">0</span>
+                </button>
+                <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-accent transition-colors">
+                    <i data-lucide="menu" class="w-5 h-5 stroke-[1.5]"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- Page Hero -->
+    <section class="relative pt-48 pb-36 min-h-[550px] flex items-center justify-center text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/img/5.png" alt="Sustainability" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-primary/80"></div>
+        </div>
+        
+        <div class="relative z-10 text-center reveal-up">
+            <span class="text-accent text-[0.65rem] tracking-[0.3em] font-medium uppercase mb-4 block">Responsible Farming</span>
+            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-normal">Sustainability</h1>
+        </div>
+    </section>
+<!-- Sustainability & Process -->
+    <section id="sustainability" class="py-32 md:py-48 bg-charcoal text-white border-t border-white/5">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-24 reveal-up">
+                <div>
+                    <span class="text-accent text-[0.65rem] tracking-[0.3em] font-medium uppercase mb-8 block">The Future</span>
+                    <h2 class="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-tight max-w-2xl">Farming <em class="italic font-light text-white/50">beyond</em> the harvest.</h2>
+                </div>
+                <p class="text-lg font-light text-white/60 leading-relaxed max-w-md mt-8 lg:mt-0 lg:text-right">
+                    Our approach is deeply built around protecting the essential resources that make farming possible for generations to come.
+                </p>
+            </div>
+            
+            <!-- Premium Bento Box Grid (All 4 Pillars) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 reveal-up delay-100">
+                <!-- Block 1: Healthy Soil (Image 3.png) -->
+                <div class="lg:col-span-7 relative h-[450px] md:h-[550px] rounded-sm overflow-hidden group">
+                    <img src="assets/img/3.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-premium group-hover:scale-105 opacity-75" alt="Healthy Soil" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <span class="text-accent text-lg font-heading italic mb-4 block">01</span>
+                        <h3 class="font-heading text-3xl md:text-4xl text-white mb-4">Healthy Soil</h3>
+                        <p class="text-white/80 font-light max-w-md leading-relaxed">Natural, regenerative practices that systematically protect and enhance long-term soil biology and health.</p>
+                    </div>
+                </div>
+                
+                <!-- Block 2: Water Cycle (Image 5.png) -->
+                <div class="lg:col-span-5 relative h-[450px] md:h-[550px] rounded-sm overflow-hidden group">
+                    <img src="assets/img/5.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-premium group-hover:scale-105 opacity-75" alt="Water Cycle" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <span class="text-accent text-lg font-heading italic mb-4 block">02</span>
+                        <h3 class="font-heading text-3xl md:text-4xl text-white mb-4">Water Cycle</h3>
+                        <p class="text-white/80 font-light leading-relaxed">Highly thoughtful irrigation systems focused on extensive water conservation and recycling.</p>
+                    </div>
+                </div>
+
+                <!-- Block 3: Biodiversity (Image 6.png) -->
+                <div class="lg:col-span-5 relative h-[450px] md:h-[550px] rounded-sm overflow-hidden group">
+                    <img src="assets/img/6.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-premium group-hover:scale-105 opacity-75" alt="Biodiversity" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <span class="text-accent text-lg font-heading italic mb-4 block">03</span>
+                        <h3 class="font-heading text-3xl md:text-4xl text-white mb-4">Biodiversity</h3>
+                        <p class="text-white/80 font-light leading-relaxed">Actively supporting and nurturing healthy native ecosystems and wildlife around our perimeters.</p>
+                    </div>
+                </div>
+
+                <!-- Block 4: Farmer Support (Image 7.png) -->
+                <div class="lg:col-span-7 relative h-[450px] md:h-[550px] rounded-sm overflow-hidden group">
+                    <img src="assets/img/7.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-premium group-hover:scale-105 opacity-75" alt="Farmer Support" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <span class="text-accent text-lg font-heading italic mb-4 block">04</span>
+                        <h3 class="font-heading text-3xl md:text-4xl text-white mb-4">Farmer Support</h3>
+                        <p class="text-white/80 font-light max-w-md leading-relaxed">Building economically sustainable relationships with the families who dedicate their lives to cultivating food.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 flex justify-center reveal-up">
+                <a href="#" class="inline-flex items-center text-xs tracking-[0.15em] uppercase text-white font-medium group hover:text-accent transition-colors duration-500">
+                    Read Our Manifesto <i data-lucide="arrow-right" class="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform duration-500 ease-premium"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- 1. The Carbon Promise -->
+    <section class="py-32 md:py-48 bg-background relative overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="relative reveal-up order-2 lg:order-1">
+                    <div class="aspect-[4/5] w-full overflow-hidden">
+                        <img src="assets/img/8.png" alt="Rich soil and hands" class="w-full h-full object-cover scale-105 transition-transform duration-[3s] ease-premium hover:scale-100" />
+                    </div>
+                    <!-- Floating Stat Card -->
+                    <div class="absolute -bottom-10 -right-10 md:bottom-10 md:-right-12 bg-white p-8 md:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.08)] max-w-[280px]">
+                        <span class="font-heading text-4xl text-primary mb-2 block">100%</span>
+                        <p class="text-xs tracking-[0.2em] uppercase font-medium text-accent">Carbon Neutral<br>Operations</p>
+                    </div>
+                </div>
+                <div class="reveal-up delay-200 order-1 lg:order-2">
+                    <span class="text-accent text-[0.65rem] tracking-[0.3em] font-medium uppercase mb-8 block">Our Commitment</span>
+                    <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl text-primary mb-8 font-normal leading-tight">Giving back more <br>than we take.</h2>
+                    <p class="text-lg font-light text-charcoal/70 leading-relaxed mb-8">
+                        The earth provides everything we need. In return, we have fundamentally restructured our entire supply chain and farming practices to ensure we are putting more carbon back into the soil than we emit.
+                    </p>
+                    <p class="text-lg font-light text-charcoal/70 leading-relaxed">
+                        Through regenerative agriculture, deep-root cover cropping, and zero-fossil-fuel processing facilities, we are actively reversing climate impact�one harvest at a time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Interactive Initiatives Grid -->
+    <section class="py-32 bg-white relative border-t border-stone">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div class="flex flex-col items-center text-center mb-24 reveal-up">
+                <span class="text-accent text-[0.65rem] tracking-[0.3em] font-medium uppercase mb-6 block">Actionable Steps</span>
+                <h2 class="font-heading text-4xl md:text-5xl text-primary font-normal">Our Initiatives</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
+                <!-- Initiative 1 -->
+                <div class="group cursor-pointer reveal-up">
+                    <div class="aspect-square overflow-hidden relative mb-8 rounded-sm">
+                        <img src="assets/img/9.png" alt="Zero Waste" class="w-full h-full object-cover transition-transform duration-[2s] ease-premium group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-700"></div>
+                    </div>
+                    <h3 class="font-heading text-2xl text-primary mb-4 transition-colors duration-300 group-hover:text-accent">Zero Waste Packaging</h3>
+                    <p class="font-light text-charcoal/60 leading-relaxed text-sm">All our produce is packed using 100% biodegradable banana leaves and recycled paper fibers, eliminating single-use plastics.</p>
+                </div>
+                <!-- Initiative 2 -->
+                <div class="group cursor-pointer reveal-up delay-100">
+                    <div class="aspect-square overflow-hidden relative mb-8 rounded-sm">
+                        <img src="assets/img/10.png" alt="Solar Powered" class="w-full h-full object-cover transition-transform duration-[2s] ease-premium group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-700"></div>
+                    </div>
+                    <h3 class="font-heading text-2xl text-primary mb-4 transition-colors duration-300 group-hover:text-accent">Solar Powered Farms</h3>
+                    <p class="font-light text-charcoal/60 leading-relaxed text-sm">Our entire irrigation network and processing units are powered by advanced on-site solar microgrids.</p>
+                </div>
+                <!-- Initiative 3 -->
+                <div class="group cursor-pointer reveal-up delay-200">
+                    <div class="aspect-square overflow-hidden relative mb-8 rounded-sm">
+                        <img src="assets/img/11.png" alt="Crop Rotation" class="w-full h-full object-cover transition-transform duration-[2s] ease-premium group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-700"></div>
+                    </div>
+                    <h3 class="font-heading text-2xl text-primary mb-4 transition-colors duration-300 group-hover:text-accent">Natural Crop Rotation</h3>
+                    <p class="font-light text-charcoal/60 leading-relaxed text-sm">We strictly enforce multi-year crop rotation schedules to naturally prevent pests and replenish essential soil nutrients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. The Legacy (Parallax Quote) -->
+    <section class="relative h-[80vh] min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden border-t border-accent/30">
+        <div class="absolute inset-0 z-0 opacity-90 bg-cover bg-center bg-fixed" style="background-image: url('assets/img/i5.png');"></div>
+        <div class="absolute inset-0 bg-primary/80 mix-blend-multiply z-0"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 md:px-12 reveal-up">
+            <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-snug tracking-wide">
+                "We do not inherit the earth from our ancestors, we borrow it from our children."
+            </h2>
+            <div class="mt-12 w-16 h-px bg-white/30 mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <!-- Masterclass Luxury Footer -->
+        <!-- Masterclass Luxury Footer -->
+        <!-- Masterclass Luxury Footer -->
+    <footer id="contact" class="bg-primary text-white pt-20 pb-12 border-t border-white/10 relative overflow-hidden">
+        <!-- Ambient Background Video -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <video id="footer-bg-video" src="assets/img/footervideo.mp4#t=3" autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover opacity-80 scale-105"></video>
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/75 via-primary/45 to-primary/85"></div>
+        </div>
+        
+
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+            
+            <!-- Middle Section: Nav & Details Grid -->
+            <div class="pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 border-b border-white/10">
+                
+                <!-- Brand Column -->
+                <div class="lg:col-span-4 pr-0 lg:pr-12">
+                    <a href="index.html" class="flex items-center gap-4 mb-6 group">
+                        <div class="text-accent group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="#8C6C42" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22v-9"/>
+                                <path d="M12 13C12 7 6 4 6 4c0 6 6 9 6 9z" fill="#8C6C42" fill-opacity="0.25"/>
+                                <path d="M12 13C12 8 18 6 18 6c0 5-6 7-6 7z" fill="#8C6C42" fill-opacity="0.4"/>
+                                <path d="M7 22h10"/>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-heading text-3xl font-normal tracking-wide leading-none">NILAM</span>
+                            <span class="text-[0.65rem] tracking-[0.25em] text-accent mt-1.5 uppercase font-medium">நிலம்</span>
+                        </div>
+                    </a>
+                    <p class="text-white/60 font-light text-base leading-relaxed mb-8 max-w-xs">
+                        Cultivating the earth with profound respect. Rooted in Nature. Grown with Care.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-accent hover:bg-accent/20 transition-all duration-300">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-accent hover:bg-accent/20 transition-all duration-300">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-accent hover:bg-accent/20 transition-all duration-300">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-[0.65rem] tracking-[0.25em] uppercase text-accent font-medium mb-8">Navigation</h4>
+                    <div class="flex flex-col gap-4 text-sm font-light text-white/70">
+                        <a href="index.html" class="hover:text-white hover:translate-x-1 transition-all duration-300">Home</a>
+                        <a href="farm.html" class="hover:text-white hover:translate-x-1 transition-all duration-300">Our Farm</a>
+                        <a href="sustainability.html" class="hover:text-white hover:translate-x-1 transition-all duration-300">Sustainability</a>
+                        <a href="harvest.html" class="hover:text-white hover:translate-x-1 transition-all duration-300">The Harvest</a>
+                        <a href="contact.html" class="hover:text-white hover:translate-x-1 transition-all duration-300">Contact Us</a>
+                    </div>
+                </div>
+                
+                <!-- Practices / Story -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-[0.65rem] tracking-[0.25em] uppercase text-accent font-medium mb-8">Philosophy</h4>
+                    <div class="flex flex-col gap-4 text-sm font-light text-white/70">
+                        <span class="hover:text-white transition-colors cursor-default">Regenerative Farming</span>
+                        <span class="hover:text-white transition-colors cursor-default">Soil Microbiology</span>
+                        <span class="hover:text-white transition-colors cursor-default">Pure Spring Water Irrigation</span>
+                        <span class="hover:text-white transition-colors cursor-default">Zero Synthetic Chemicals</span>
+                    </div>
+                </div>
+                
+                <!-- Contact / Estate -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-[0.65rem] tracking-[0.25em] uppercase text-accent font-medium mb-8">The Estate</h4>
+                    <div class="flex flex-col gap-3 text-sm font-light text-white/70 mb-6">
+                        <p class="leading-relaxed">124 Harvest Valley Road,<br/>Tamil Nadu, India</p>
+                        <a href="mailto:hello@nilam.com" class="text-white hover:text-accent transition-colors font-medium underline underline-offset-4 mt-2">hello@nilam.com</a>
+                    </div>
+                    <div class="inline-flex items-center gap-2 text-xs text-accent bg-accent/10 px-3 py-1.5 rounded-full border border-accent/20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Harvesting Season Active</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Row -->
+            <div class="pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[0.7rem] tracking-[0.15em] text-white/40 uppercase font-medium">
+                <p>&copy; 2026 NILAM AGRICULTURAL ESTATE. ALL RIGHTS RESERVED.</p>
+                <div class="flex items-center gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex items-center gap-2 hover:text-accent transition-colors uppercase tracking-widest text-white/60 ml-4">
+                        Back to top <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-charcoal/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+    <!-- Cart Slide-out -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-background z-[70] translate-x-full transition-transform duration-500 ease-premium shadow-[-10px_0_40px_rgba(0,0,0,0.1)] flex flex-col">
+        
+        <!-- Cart Header -->
+        <div class="px-8 py-6 border-b border-stone flex justify-between items-center bg-white">
+            <h3 class="font-heading text-2xl text-primary">Your Harvest</h3>
+            <button id="close-cart" class="text-charcoal/50 hover:text-charcoal transition-colors p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items Container -->
+        <div id="cart-items" class="flex-1 overflow-y-auto p-8 flex flex-col gap-6">
+            <!-- Empty state (default) -->
+            <div id="empty-cart-msg" class="flex flex-col items-center justify-center h-full text-center opacity-50">
+                <i data-lucide="shopping-bag" class="w-12 h-12 mb-4 stroke-[1]"></i>
+                <p class="font-light text-sm">Your basket is currently empty.</p>
+            </div>
+            <!-- Items will be injected here via JS -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-8 bg-white border-t border-stone">
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-sm font-light text-charcoal/60 uppercase tracking-widest">Subtotal</span>
+                <span class="font-heading text-2xl text-primary">&#8377;<span id="cart-total">0</span></span>
+            </div>
+            <button class="w-full bg-primary text-white py-4 text-xs font-medium uppercase tracking-[0.2em] hover:bg-charcoal transition-colors duration-300">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+    <!-- Mobile Navigation Overlay Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#183424] z-[100] translate-x-full transition-transform duration-500 ease-premium flex flex-col justify-between p-6 md:p-10 text-white lg:hidden overflow-y-auto shadow-2xl">
+        
+        <!-- Header -->
+        <div class="flex justify-between items-center pb-6 border-b border-white/15">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="text-accent">
+                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#8C6C42" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22v-9"/>
+                        <path d="M12 13C12 7 6 4 6 4c0 6 6 9 6 9z" fill="#8C6C42" fill-opacity="0.4"/>
+                        <path d="M12 13C12 8 18 6 18 6c0 5-6 7-6 7z" fill="#8C6C42" fill-opacity="0.6"/>
+                        <path d="M7 22h10"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading text-xl tracking-[0.12em] leading-none text-white font-normal">NILAM</span>
+                    <span class="text-[0.65rem] tracking-[0.2em] text-accent opacity-100 mt-1 uppercase font-semibold">நிலம்</span>
+                </div>
+            </a>
+            <button id="close-mobile-menu" aria-label="Close menu" class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center shadow-lg hover:bg-white hover:text-primary transition-all duration-300">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Numbered Editorial Navigation Links -->
+        <div class="flex flex-col gap-5 my-8">
+            <a href="index.html" class="group flex items-baseline gap-4 py-3.5 border-b border-white/10 hover:border-accent transition-colors">
+                <span class="text-xs font-mono text-accent font-bold">01</span>
+                <span class="font-heading text-3xl font-medium text-white group-hover:text-accent group-hover:translate-x-2 transition-all duration-300">Home</span>
+            </a>
+            <a href="farm.html" class="group flex items-baseline gap-4 py-3.5 border-b border-white/10 hover:border-accent transition-colors">
+                <span class="text-xs font-mono text-accent font-bold">02</span>
+                <span class="font-heading text-3xl font-medium text-white group-hover:text-accent group-hover:translate-x-2 transition-all duration-300">Our Farm</span>
+            </a>
+            <a href="sustainability.html" class="group flex items-baseline gap-4 py-3.5 border-b border-white/10 hover:border-accent transition-colors">
+                <span class="text-xs font-mono text-accent font-bold">03</span>
+                <span class="font-heading text-3xl font-medium text-white group-hover:text-accent group-hover:translate-x-2 transition-all duration-300">Sustainability</span>
+            </a>
+            <a href="harvest.html" class="group flex items-baseline gap-4 py-3.5 border-b border-white/10 hover:border-accent transition-colors">
+                <span class="text-xs font-mono text-accent font-bold">04</span>
+                <span class="font-heading text-3xl font-medium text-accent group-hover:text-white group-hover:translate-x-2 transition-all duration-300">The Harvest</span>
+            </a>
+            <a href="contact.html" class="group flex items-baseline gap-4 py-3.5 border-b border-white/10 hover:border-accent transition-colors">
+                <span class="text-xs font-mono text-accent font-bold">05</span>
+                <span class="font-heading text-3xl font-medium text-white group-hover:text-accent group-hover:translate-x-2 transition-all duration-300">Contact</span>
+            </a>
+        </div>
+
+        <!-- Featured CTA Card & Footer Details -->
+        <div class="flex flex-col gap-6 pt-2">
+            <a href="harvest.html" class="w-full bg-accent text-white py-4 px-6 rounded-sm text-xs font-semibold uppercase tracking-[0.2em] flex items-center justify-between group hover:bg-white hover:text-primary transition-all duration-300 shadow-xl">
+                <span>Shop The Collection</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <div class="flex justify-between items-center pt-4 border-t border-white/15 text-xs">
+                <div class="flex items-center gap-2 text-accent">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="uppercase tracking-widest text-[0.65rem] font-medium text-white/80">Tamil Nadu, India</span>
+                </div>
+                <a href="mailto:hello@nilam.com" class="text-accent hover:text-white transition-colors font-medium">hello@nilam.com</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

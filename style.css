@@ -1,0 +1,76 @@
+/* Premium Styling Utilities */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base image placeholder styling */
+.image-placeholder {
+    background-color: #738669; /* Accent light */
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slowScale {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Initial hidden state for scroll reveals */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* For hero section elements that load immediately */
+.animate-fade-up {
+    animation: fadeUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-image-reveal {
+    animation: slowScale 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Delays */
+.delay-100 { transition-delay: 100ms; animation-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; animation-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; animation-delay: 300ms; }
+.delay-500 { transition-delay: 500ms; animation-delay: 500ms; }
+.delay-700 { transition-delay: 700ms; animation-delay: 700ms; }
+
+/* Navbar scrolled state */
+.nav-scrolled {
+    background-color: #183424 !important;
+    background: #183424 !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
